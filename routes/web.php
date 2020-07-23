@@ -41,4 +41,5 @@ Route::get('/ota', 'LivroController@ota');
 *
 * Grupos
 * Rout::group(['tipo'=>'valor'], function(){callback} || controller);
+*
 */
