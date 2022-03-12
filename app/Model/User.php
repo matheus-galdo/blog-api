@@ -1,8 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -36,4 +37,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function news()
+    {
+        return $this->hasMany('App\Model\News');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+ 
+        static::addGlobalScope('visible', function ($builder)
+        {
+            $builder->addSelect('users.name', 'users.email');
+        });
+    }
+    
 }
