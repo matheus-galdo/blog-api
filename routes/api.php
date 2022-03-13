@@ -18,10 +18,12 @@ use Illuminate\Support\Facades\Route;
 //public routes
 Route::get('/posts', [PostsController::class , 'getPosts']);
 Route::get('/posts/{slug}', [PostsController::class , 'getPost']);
+Route::post('/posts/search', [PostsController::class , 'searchPosts']);
 
 
 //admin routes
-Route::post('/create-post', 'PostsController@savePost');
-Route::post('/update-post/{id}', 'PostsController@updatePost');
-Route::post('/delete-post/{id}', 'PostsController@deletePost');
+Route::post('/posts', 'PostsController@savePost');
+Route::put('/posts/{id}', 'PostsController@updatePost');
+Route::delete('/posts/{id}', 'PostsController@deletePost');
+Route::patch('/posts/{id}/restore', 'PostsController@restorePost');
 

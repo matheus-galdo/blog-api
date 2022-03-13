@@ -52,4 +52,12 @@ class Handler extends ExceptionHandler
     {
         return parent::render($request, $exception);
     }
+
+    public static function makeJSONResponse($message, $statusCode)
+    {
+        return response()->json(
+            ["message" => $message],
+            $statusCode
+        );
+    }
 }

@@ -38,9 +38,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function news()
+    public function posts()
     {
-        return $this->hasMany('App\Model\News');
+        return $this->hasMany('App\Model\Posts');
     }
 
     protected static function boot()
@@ -49,7 +49,7 @@ class User extends Authenticatable
  
         static::addGlobalScope('visible', function ($builder)
         {
-            $builder->addSelect('users.name', 'users.email');
+            $builder->addSelect('users.id', 'users.name', 'users.email');
         });
     }
     
