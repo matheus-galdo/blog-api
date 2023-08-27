@@ -6,11 +6,6 @@ use App\Http\Requests\CreatePostRequest;
 use App\Http\Requests\CreateSearchPostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Http\Services\PostService;
-use App\model\Post;
-use App\model\User;
-use Exception;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class PostsController extends Controller
 {
